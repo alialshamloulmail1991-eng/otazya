@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>OTAZYA | Wear Your Story</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* ========================================
+           ROOT
+        ======================================== */
+
+        :root {
+
+            --primary-color: #30204f;
+
+            --accent-color: #4b3170;
+
+            --bg-beige: #f8eee6;
+
+            --gold-accent: #c49a6c;
+
+            --gold-light: #e2bd8a;
+
+            --dark-text: #21152d;
+
+            --white: #ffffff;
+
+            --gray-text: #666666;
+
+            --shadow:
+                0 10px 30px rgba(48, 32, 79, 0.10);
+
+        }
+
+
+        /* ========================================
+           RESET
+        ======================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            background-color: var(--bg-beige);
+
+            color: var(--dark-text);
+
+            font-family: 'Cairo', sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+
+        }
+
+
+        a {
+
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+
+        /* ========================================
+           TOP BAR
+        ======================================== */
+
+        .top-bar {
+
+            background-color: var(--primary-color);
+
+            color: var(--bg-beige);
+
+            min-height: 48px;
+
+            padding: 10px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            font-size: 14px;
+
+        }
+
+
+        .top-bar .location {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .top-bar .contact-number {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .top-bar a {
+
+            color: var(--bg-beige);
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .top-bar a:hover {
+
+            color: var(--gold-light);
+
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        nav {
+
+            background: rgba(255,255,255,0.97);
+
+            padding: 8px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow: var(--shadow);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .brand-container {
+
+            display: flex;
+
+            align-items: center;
+
+            text-decoration: none;
+
+        }
+
+
+        .logo-image {
+
+            width: 145px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            list-style: none;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links a {
+
+            color: var(--primary-color);
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: var(--gold-accent);
+
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+
+            min-height: 85vh;
+
+            padding: 60px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+
+                linear-gradient(
+
+                    rgba(48, 32, 79, 0.80),
+
+                    rgba(48, 32, 79, 0.80)
+
+                ),
+
+                url(
+                    'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600'
+                )
+
+                center / cover;
+
+        }
+
+
+        .hero-logo {
+
+            width: min(380px, 85vw);
+
+            height: auto;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin-bottom: 35px;
+
+            color: var(--bg-beige);
+
+            font-size: 21px;
+
+            line-height: 2;
+
+        }
+
+
+        /* ========================================
+           MAIN BUTTON
+        ======================================== */
+
+        .btn-main {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 35px;
+
+            border-radius: 30px;
+
+            background:
+
+                linear-gradient(
+
+                    45deg,
+
+                    var(--gold-accent),
+
+                    var(--gold-light)
+
+                );
+
+            color: var(--primary-color);
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            box-shadow:
+
+                0 5px 20px
+
+                rgba(196,154,108,0.40);
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-main:hover {
+
+            transform: translateY(-3px);
+
+            background: var(--white);
+
+        }
+
+
+        /* ========================================
+           SECTIONS
+        ======================================== */
+
+        section {
+
+            padding: 80px 5%;
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .section-title h2 {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding-bottom: 12px;
+
+            color: var(--primary-color);
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+        }
+
+
+        .section-title h2::after {
+
+            content: '';
+
+            position: absolute;
+
+            right: 25%;
+
+            bottom: 0;
+
+            width: 50%;
+
+            height: 3px;
+
+            background: var(--gold-accent);
+
+        }
+
+
+        /* ========================================
+           CATEGORIES
+        ======================================== */
+
+        .categories-grid {
+
+            display: grid;
+
+            grid-template-columns:
+
+                repeat(
+
+                    auto-fit,
+
+                    minmax(250px, 1fr)
+
+                );
+
+            gap: 25px;
+
+        }
+
+
+        .category-card {
+
+            position: relative;
+
+            height: 320px;
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            background: #ddd;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .category-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+
+        }
+
+
+        .category-card:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        .category-overlay {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 100%;
+
+            padding: 25px 15px;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+
+                linear-gradient(
+
+                    transparent,
+
+                    rgba(48,32,79,0.94)
+
+                );
+
+        }
+
+
+        .category-overlay h3 {
+
+            font-size: 18px;
+
+        }
+
+
+        /* ========================================
+           CATALOG
+        ======================================== */
+
+        .catalog-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .products-grid {
+
+            display: grid;
+
+            grid-template-columns:
+
+                repeat(
+
+                    auto-fit,
+
+                    minmax(280px, 1fr)
+
+                );
+
+            gap: 30px;
+
+        }
+
+
+        .product-card {
+
+            overflow: hidden;
+
+            background: var(--white);
+
+            border:
+
+                1px solid
+
+                rgba(48,32,79,0.06);
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+
+        }
+
+
+        .product-card:hover {
+
+            transform: translateY(-8px);
+
+        }
+
+
+        .product-card img {
+
+            width: 100%;
+
+            height: 400px;
+
+            object-fit: cover;
+
+        }
+
+
+        .product-info {
+
+            padding: 20px;
+
+            text-align: center;
+
+        }
+
+
+        .product-title {
+
+            margin-bottom: 10px;
+
+            color: var(--primary-color);
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+        }
+
+
+        .product-desc {
+
+            margin-bottom: 18px;
+
+            color: var(--gray-text);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ========================================
+           CONTACT BUTTONS
+        ======================================== */
+
+        .btn-phone,
+        .btn-whatsapp {
+
+            width: 100%;
+
+            padding: 12px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            border-radius: 8px;
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-phone {
+
+            background: var(--primary-color);
+
+        }
+
+
+        .btn-phone:hover {
+
+            background: var(--accent-color);
+
+        }
+
+
+        .btn-whatsapp {
+
+            background: #25D366;
+
+        }
+
+
+        .btn-whatsapp:hover {
+
+            background: #1eb956;
+
+        }
+
+
+        /* ========================================
+           CUSTOM ORDER
+        ======================================== */
+
+        .custom-order {
+
+            margin: 40px 5%;
+
+            padding: 70px 20px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    rgba(48,32,79,0.95),
+
+                    rgba(75,49,112,0.95)
+
+                ),
+
+                url(
+                    'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200'
+                )
+
+                center / cover;
+
+        }
+
+
+        .custom-order h2 {
+
+            margin-bottom: 10px;
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+        }
+
+
+        .custom-order p {
+
+            max-width: 800px;
+
+            margin: 15px auto 25px;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+            opacity: 0.95;
+
+        }
+
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+
+        .contact-container {
+
+            display: grid;
+
+            grid-template-columns:
+
+                repeat(
+
+                    auto-fit,
+
+                    minmax(300px, 1fr)
+
+                );
+
+            gap: 30px;
+
+            padding: 40px;
+
+            background: var(--white);
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .contact-info h3 {
+
+            margin-bottom: 25px;
+
+            color: var(--primary-color);
+
+            font-size: 26px;
+
+            font-weight: 800;
+
+        }
+
+
+        .info-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 22px;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .info-item i {
+
+            min-width: 30px;
+
+            color: var(--accent-color);
+
+            font-size: 24px;
+
+            text-align: center;
+
+        }
+
+
+        .contact-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            background: var(--bg-beige);
+
+        }
+
+
+        .contact-card h3 {
+
+            margin-bottom: 15px;
+
+            color: var(--primary-color);
+
+            font-weight: 800;
+
+        }
+
+
+        .contact-card p {
+
+            margin-bottom: 25px;
+
+            color: #555;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .contact-buttons {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+
+        /* ========================================
+           FLOATING BUTTONS
+        ======================================== */
+
+        .floating-buttons {
+
+            position: fixed;
+
+            left: 20px;
+
+            bottom: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            z-index: 2000;
+
+        }
+
+
+        .float-btn {
+
+            width: 58px;
+
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            box-shadow:
+
+                2px 5px 15px
+
+                rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+
+        }
+
+
+        .float-btn:hover {
+
+            transform: scale(1.1);
+
+        }
+
+
+        .float-phone {
+
+            background: var(--primary-color);
+
+        }
+
+
+        .float-whatsapp {
+
+            background: #25D366;
+
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+
+            margin-top: 50px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            color: var(--bg-beige);
+
+            background: var(--primary-color);
+
+        }
+
+
+        footer .brand {
+
+            margin-bottom: 5px;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+        }
+
+
+        footer p {
+
+            line-height: 1.8;
+
+        }
+
+
+        footer .phone {
+
+            margin-top: 8px;
+
+            color: var(--gold-light);
+
+            font-weight: 700;
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 768px) {
+
+            .top-bar {
+
+                flex-direction: column;
+
+                gap: 7px;
+
+                padding: 10px 15px;
+
+                text-align: center;
+
+                font-size: 13px;
+
+            }
+
+
+            nav {
+
+                padding: 7px 15px;
+
+            }
+
+
+            .logo-image {
+
+                width: 115px;
+
+                height: 65px;
+
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                min-height: 78vh;
+
+                padding: 45px 18px;
+
+            }
+
+
+            .hero-logo {
+
+                width: min(310px, 90vw);
+
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+
+                line-height: 1.9;
+
+            }
+
+
+            .btn-main {
+
+                padding: 13px 24px;
+
+                font-size: 15px;
+
+            }
+
+
+            section {
+
+                padding: 60px 18px;
+
+            }
+
+
+            .section-title {
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 27px;
+
+            }
+
+
+            .categories-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 12px;
+
+            }
+
+
+            .category-card {
+
+                height: 230px;
+
+            }
+
+
+            .category-overlay {
+
+                padding: 14px 7px;
+
+            }
+
+
+            .category-overlay h3 {
+
+                font-size: 13px;
+
+            }
+
+
+            .products-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 22px;
+
+            }
+
+
+            .product-card img {
+
+                height: 390px;
+
+            }
+
+
+            .custom-order {
+
+                margin: 25px 15px;
+
+                padding: 55px 18px;
+
+            }
+
+
+            .custom-order h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .custom-order p {
+
+                font-size: 16px;
+
+            }
+
+
+            .contact-container {
+
+                padding: 25px 18px;
+
+            }
+
+
+            .floating-buttons {
+
+                left: 15px;
+
+                bottom: 15px;
+
+            }
+
+
+            .float-btn {
+
+                width: 52px;
+
+                height: 52px;
+
+                font-size: 22px;
+
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .categories-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .category-card {
+
+                height: 280px;
+
+            }
+
+
+            .hero-logo {
+
+                width: 280px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         TOP BAR
+    ======================================== -->
+
+    <div class="top-bar">
+
+        <div class="location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span>
+                الشرقية - القرين -
+                بجوار أشرف بتاع البوظة
+            </span>
+
+        </div>
+
+
+        <div class="contact-number">
+
+            <i class="fa-solid fa-phone"></i>
+
+            <a href="tel:01145564652">
+
+                01145564652
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+
+    <nav>
+
+        <a
+            href="#home"
+            class="brand-container"
+            title="OTAZYA"
+        >
+
+            <img
+                src="otazya-logo-transparent.png"
+                alt="OTAZYA Logo"
+                class="logo-image"
+            >
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">
+                    الرئيسية
+                </a>
+            </li>
+
+            <li>
+                <a href="#categories">
+                    الأقسام
+                </a>
+            </li>
+
+            <li>
+                <a href="#catalog">
+                    الكتالوج
+                </a>
+            </li>
+
+            <li>
+                <a href="#custom">
+                    تفصيل خاص
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    العنوان والتواصل
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ========================================
+         HERO
+    ======================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+        <img
+            src="otazya-logo-transparent.png"
+            alt="OTAZYA - Wear Your Story"
+            class="hero-logo"
+        >
+
+
+        <p>
+
+            ارتدي قصتكِ بأناقة لا تُنسى..
+
+            نُصمّم ونُفصّل أحدث صيحات الفساتين
+
+            والأزياء الحريمي بلمسات راقية
+
+            ومقاسات مظبوطة.
+
+        </p>
+
+
+        <a
+            href="tel:01145564652"
+            class="btn-main"
+        >
+
+            <i class="fa-solid fa-phone"></i>
+
+            اتصلي بنا الآن
+
+        </a>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CATEGORIES
+    ======================================== -->
+
+    <section id="categories">
+
+        <div class="section-title">
+
+            <h2>
+                أقسام OTAZYA
+            </h2>
+
+        </div>
+
+
+        <div class="categories-grid">
+
+
+            <div class="category-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600"
+                    alt="فساتين سهرة"
+                    loading="lazy"
+                >
+
+                <div class="category-overlay">
+
+                    <h3>
+                        فساتين سهرة وسواريه
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="category-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600"
+                    alt="عبايات"
+                    loading="lazy"
+                >
+
+                <div class="category-overlay">
+
+                    <h3>
+                        عبايات وتصاميم راقية
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="category-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600"
+                    alt="كاجوال"
+                    loading="lazy"
+                >
+
+                <div class="category-overlay">
+
+                    <h3>
+                        أطقم كاجوال شيك
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="category-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=600"
+                    alt="تفصيل خاص"
+                    loading="lazy"
+                >
+
+                <div class="category-overlay">
+
+                    <h3>
+                        أتيليه التفصيل الخاص
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CATALOG
+    ======================================== -->
+
+    <section
+        id="catalog"
+        class="catalog-section"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                أحدث معروضات OTAZYA
+            </h2>
+
+        </div>
+
+
+        <div class="products-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600"
+                    alt="فستان سهرة"
+                    loading="lazy"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        فستان سهرة ملكي
+                    </div>
+
+                    <div class="product-desc">
+                        تصميم مخملي أنيق مطرز يدوياً
+                        للمناسبات الهامة.
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20فستان%20السهرة%20الملكي%20من%20OTAZYA"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        اطلبي الآن عبر الواتساب
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"
+                    alt="فستان خطوبة"
+                    loading="lazy"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        فستان خطوبة رقيق
+                    </div>
+
+                    <div class="product-desc">
+                        قصة سمكة أنيقة بلون مميز
+                        وقماش عالي الجودة.
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20فستان%20الخطوبة%20من%20OTAZYA"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        اطلبي الآن عبر الواتساب
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600"
+                    alt="طقم كاجوال"
+                    loading="lazy"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        طقم كاجوال عصري
+                    </div>
+
+                    <div class="product-desc">
+                        إطلالة مريحة وشيك بخامات ممتازة
+                        تناسب اليوم الكامل.
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20الطقم%20الكاجوال%20من%20OTAZYA"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        اطلبي الآن عبر الواتساب
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600"
+                    alt="بدلة حريمي"
+                    loading="lazy"
+                >
+
+                <div class="product-info">
+
+                    <div class="product-title">
+                        بدلة حريمي فورمال
+                    </div>
+
+                    <div class="product-desc">
+                        تفصيل متقن ورائع لإطلالة
+                        عملية وراقية.
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20البدلة%20الحريمي%20من%20OTAZYA"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        اطلبي الآن عبر الواتساب
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CUSTOM ORDER
+    ======================================== -->
+
+    <div
+        class="custom-order"
+        id="custom"
+    >
+
+        <h2>
+            عندكِ تصميم خاص وعايزة تنفذيه؟
+        </h2>
+
+
+        <p>
+
+            ابعتي لنا صورة الموديل ونحن ننفذه لكِ
+
+            في <strong>OTAZYA</strong>
+
+            بأعلى دقة وبالمقاسات المناسبة.
+
+        </p>
+
+
+        <a
+            href="https://wa.me/201145564652?text=السلام%20عليكم،%20معايا%20صورة%20موديل%20وعايزة%20أفصلها%20عند%20OTAZYA"
+            class="btn-main"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            ابعتي تصميمكِ على واتساب
+
+        </a>
+
+    </div>
+
+
+
+    <!-- ========================================
+         CONTACT
+    ======================================== -->
+
+    <section id="contact">
+
+        <div class="section-title">
+
+            <h2>
+                زورونا في OTAZYA
+            </h2>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <div class="contact-info">
+
+                <h3>
+                    معلومات الاتصال والعنوان
+                </h3>
+
+
+                <div class="info-item">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <strong>
+                            العنوان:
+                        </strong>
+
+                        <br>
+
+                        الشرقية - القرين -
+                        بجوار أشرف بتاع البوظة
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <strong>
+                            رقم الاتصال:
+                        </strong>
+
+                        <br>
+
+                        01145564652
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <div>
+
+                        <strong>
+                            واتساب:
+                        </strong>
+
+                        <br>
+
+                        01145564652
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <div>
+
+                        <strong>
+                            مواعيد العمل:
+                        </strong>
+
+                        <br>
+
+                        يومياً من الساعة
+                        12 ظهراً حتى 10 مساءً
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DIRECT CONTACT -->
+
+            <div class="contact-card">
+
+                <h3>
+                    تواصل مباشر
+                </h3>
+
+
+                <p>
+
+                    اختاري الطريقة المناسبة لكِ
+                    للتواصل مع OTAZYA.
+
+                </p>
+
+
+                <div class="contact-buttons">
+
+
+                    <!-- CALL -->
+
+                    <a
+                        href="tel:01145564652"
+                        class="btn-phone"
+                    >
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        اتصال مباشر
+
+                    </a>
+
+
+                    <!-- WHATSAPP -->
+
+                    <a
+                        href="https://wa.me/201145564652"
+                        class="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        فتح واتساب
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         FLOATING BUTTONS
+    ======================================== -->
+
+    <div class="floating-buttons">
+
+
+        <!-- WhatsApp -->
+
+        <a
+            href="https://wa.me/201145564652"
+            class="float-btn float-whatsapp"
+            target="_blank"
+            rel="noopener"
+            title="واتساب OTAZYA"
+        >
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </a>
+
+
+        <!-- Phone -->
+
+        <a
+            href="tel:01145564652"
+            class="float-btn float-phone"
+            title="اتصل بـ OTAZYA"
+        >
+
+            <i class="fa-solid fa-phone"></i>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        <p class="brand">
+            OTAZYA — Wear Your Story
+        </p>
+
+
+        <p>
+            جميع الحقوق محفوظة © 2026
+            | القرين - الشرقية
+        </p>
+
+
+        <p class="phone">
+            01145564652
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
