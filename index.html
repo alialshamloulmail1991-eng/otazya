@@ -1,1947 +1,988 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTAZYA | Wear Your Story</title>
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    >
-
+    <!-- خطوط راقية وفخمة من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-
-        /* ========================================
-           ROOT
-        ======================================== */
-
+        /* --- الألوان الهادئة والشيك --- */
         :root {
-
-            --primary-color: #30204f;
-
-            --accent-color: #4b3170;
-
-            --bg-beige: #f8eee6;
-
-            --gold-accent: #c49a6c;
-
-            --gold-light: #e2bd8a;
-
-            --dark-text: #21152d;
-
-            --white: #ffffff;
-
-            --gray-text: #666666;
-
-            --shadow:
-                0 10px 30px rgba(48, 32, 79, 0.10);
-
+            --bg-primary: #FAF7F5;          /* نود كريمي فاتح وناعم */
+            --bg-secondary: #F4EFEA;        /* بيج هادئ وراقي */
+            --bg-card: #FFFFFF;             /* أبيض ناصع للكروت */
+            --brand-main: #34282E;          /* بني داكن ناعم */
+            --brand-accent: #B8828C;        /* روز هادئ مطفأ */
+            --brand-accent-hover: #9E6B75;  /* درجة أعمق للـ Hover */
+            --brand-soft-pink: #F7EFEF;     /* وردي بيج ناعم جداً */
+            --text-main: #2D2427;           /* نص داكن مريح */
+            --text-muted: #82747C;          /* نص ثانوي هادئ */
+            --border-color: #ECE4DF;        /* حدود رقيقة */
+            --shadow-soft: 0 10px 30px rgba(52, 40, 46, 0.04);
+            --shadow-hover: 0 15px 35px rgba(184, 130, 140, 0.12);
+            --radius-main: 20px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-
-        /* ========================================
-           RESET
-        ======================================== */
-
+        /* --- الإعدادات العامة --- */
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
+            font-family: 'Alexandria', sans-serif;
             scroll-behavior: smooth;
-
         }
-
 
         body {
-
-            background-color: var(--bg-beige);
-
-            color: var(--dark-text);
-
-            font-family: 'Cairo', sans-serif;
-
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.7;
             overflow-x: hidden;
-
         }
-
-
-        img {
-
-            max-width: 100%;
-
-            display: block;
-
-        }
-
 
         a {
-
-            -webkit-tap-highlight-color: transparent;
-
+            text-decoration: none;
+            color: inherit;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* ========================================
-           TOP BAR
-        ======================================== */
-
+        /* --- شريط العنوان العلوي (Top Bar) --- */
         .top-bar {
+            background: #F0E8E3;
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 0;
+            font-size: 0.88rem;
+            color: var(--brand-main);
+        }
 
-            background-color: var(--primary-color);
-
-            color: var(--bg-beige);
-
-            min-height: 48px;
-
-            padding: 10px 5%;
-
+        .top-bar-content {
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
+            flex-wrap: wrap;
             gap: 15px;
-
-            font-size: 14px;
-
         }
 
-
-        .top-bar .location {
-
+        .top-bar-group {
             display: flex;
-
             align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
+        .top-bar-item {
+            display: flex;
+            align-items: center;
             gap: 8px;
-
         }
 
-
-        .top-bar .contact-number {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
+        .top-bar-item i {
+            color: var(--brand-accent);
         }
 
-
-        .top-bar a {
-
-            color: var(--bg-beige);
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            transition: 0.3s;
-
-        }
-
-
-        .top-bar a:hover {
-
-            color: var(--gold-light);
-
-        }
-
-
-        /* ========================================
-           NAVBAR
-        ======================================== */
-
-        nav {
-
-            background: rgba(255,255,255,0.97);
-
-            padding: 8px 5%;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            box-shadow: var(--shadow);
-
+        /* --- الهيدر وشريط التنقل --- */
+        header {
+            background: rgba(250, 247, 245, 0.95);
+            backdrop-filter: blur(12px);
             position: sticky;
-
             top: 0;
-
+            width: 100%;
             z-index: 1000;
-
+            border-bottom: 1px solid var(--border-color);
         }
 
-
-        .brand-container {
-
+        .navbar {
             display: flex;
-
+            justify-content: space-between;
             align-items: center;
-
-            text-decoration: none;
-
+            padding: 12px 0;
         }
 
-
-        .logo-image {
-
-            width: 145px;
-
-            height: 75px;
-
-            object-fit: contain;
-
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
+        .logo-svg {
+            height: 65px;
+            width: auto;
+        }
 
         .nav-links {
-
             display: flex;
-
-            align-items: center;
-
+            gap: 25px;
             list-style: none;
-
-            gap: 28px;
-
         }
-
 
         .nav-links a {
-
-            color: var(--primary-color);
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            font-size: 15px;
-
-            transition: 0.3s;
-
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: var(--transition);
         }
-
 
         .nav-links a:hover {
-
-            color: var(--gold-accent);
-
+            color: var(--brand-accent);
         }
 
-
-        /* ========================================
-           HERO
-        ======================================== */
-
-        .hero {
-
-            min-height: 85vh;
-
-            padding: 60px 20px;
-
+        .header-actions {
             display: flex;
+            gap: 12px;
+        }
 
-            flex-direction: column;
-
-            justify-content: center;
-
+        /* --- الأزرار العصرية --- */
+        .btn {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .btn-primary {
+            background: linear-gradient(135deg, #C28E98 0%, #B8828C 100%);
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(184, 130, 140, 0.22);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #B8828C 0%, #9E6B75 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(184, 130, 140, 0.32);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--brand-main);
+            border-color: var(--border-color);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-accent);
+            color: var(--brand-accent);
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 130, 140, 0.12);
+        }
+
+        .btn-map {
+            background: var(--brand-soft-pink);
+            color: var(--brand-main);
+            border: 1px solid rgba(184, 130, 140, 0.3);
+            padding: 11px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-map:hover {
+            background: var(--brand-accent);
+            color: #FFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 130, 140, 0.25);
+        }
+
+        /* --- قسم البطل / Hero Section --- */
+        .hero {
+            padding: 50px 0 70px;
             text-align: center;
-
-            color: var(--white);
-
-            background:
-
-                linear-gradient(
-
-                    rgba(48, 32, 79, 0.80),
-
-                    rgba(48, 32, 79, 0.80)
-
-                ),
-
-                url(
-                    'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600'
-                )
-
-                center / cover;
-
+            position: relative;
+            background: radial-gradient(circle at center, rgba(184, 130, 140, 0.08) 0%, transparent 70%);
         }
 
+        .hero-centered-logo {
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        .hero-logo {
-
-            width: min(380px, 85vw);
-
+        .hero-logo-svg {
+            width: 300px;
             height: auto;
-
-            margin-bottom: 25px;
-
+            filter: drop-shadow(0px 8px 16px rgba(52, 40, 46, 0.06));
+            transition: var(--transition);
         }
 
+        .hero-logo-svg:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            background: var(--brand-soft-pink);
+            border: 1px solid rgba(184, 130, 140, 0.25);
+            border-radius: 30px;
+            color: var(--brand-accent);
+            font-weight: 500;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--brand-main);
+            line-height: 1.35;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--brand-accent);
+            font-weight: 400;
+        }
 
         .hero p {
-
-            max-width: 720px;
-
-            margin-bottom: 35px;
-
-            color: var(--bg-beige);
-
-            font-size: 21px;
-
-            line-height: 2;
-
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-weight: 300;
         }
 
-
-        /* ========================================
-           MAIN BUTTON
-        ======================================== */
-
-        .btn-main {
-
-            display: inline-flex;
-
-            align-items: center;
-
+        .hero-buttons {
+            display: flex;
             justify-content: center;
-
-            gap: 10px;
-
-            padding: 14px 35px;
-
-            border-radius: 30px;
-
-            background:
-
-                linear-gradient(
-
-                    45deg,
-
-                    var(--gold-accent),
-
-                    var(--gold-light)
-
-                );
-
-            color: var(--primary-color);
-
-            text-decoration: none;
-
-            font-size: 17px;
-
-            font-weight: 800;
-
-            box-shadow:
-
-                0 5px 20px
-
-                rgba(196,154,108,0.40);
-
-            transition: 0.3s;
-
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-
-        .btn-main:hover {
-
-            transform: translateY(-3px);
-
-            background: var(--white);
-
+        /* كارت العنوان والمواعيد التفاعلي */
+        .location-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-main);
+            padding: 22px 30px;
+            margin: 45px auto 0;
+            max-width: 850px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: var(--shadow-soft);
+            flex-wrap: wrap;
         }
 
-
-        /* ========================================
-           SECTIONS
-        ======================================== */
-
-        section {
-
-            padding: 80px 5%;
-
+        .location-details {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: right;
+        }
 
+        .location-info i {
+            font-size: 1.4rem;
+            color: var(--brand-accent);
+            background: var(--brand-soft-pink);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* --- باقي الأقسام --- */
         .section-title {
-
             text-align: center;
-
             margin-bottom: 50px;
-
         }
-
 
         .section-title h2 {
-
-            position: relative;
-
-            display: inline-block;
-
-            padding-bottom: 12px;
-
-            color: var(--primary-color);
-
-            font-size: 34px;
-
-            font-weight: 800;
-
-        }
-
-
-        .section-title h2::after {
-
-            content: '';
-
-            position: absolute;
-
-            right: 25%;
-
-            bottom: 0;
-
-            width: 50%;
-
-            height: 3px;
-
-            background: var(--gold-accent);
-
-        }
-
-
-        /* ========================================
-           CATEGORIES
-        ======================================== */
-
-        .categories-grid {
-
-            display: grid;
-
-            grid-template-columns:
-
-                repeat(
-
-                    auto-fit,
-
-                    minmax(250px, 1fr)
-
-                );
-
-            gap: 25px;
-
-        }
-
-
-        .category-card {
-
-            position: relative;
-
-            height: 320px;
-
-            overflow: hidden;
-
-            border-radius: 15px;
-
-            background: #ddd;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        .category-card img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: 0.5s;
-
-        }
-
-
-        .category-card:hover img {
-
-            transform: scale(1.08);
-
-        }
-
-
-        .category-overlay {
-
-            position: absolute;
-
-            right: 0;
-
-            bottom: 0;
-
-            width: 100%;
-
-            padding: 25px 15px;
-
-            text-align: center;
-
-            color: var(--white);
-
-            background:
-
-                linear-gradient(
-
-                    transparent,
-
-                    rgba(48,32,79,0.94)
-
-                );
-
-        }
-
-
-        .category-overlay h3 {
-
-            font-size: 18px;
-
-        }
-
-
-        /* ========================================
-           CATALOG
-        ======================================== */
-
-        .catalog-section {
-
-            background: #ffffff;
-
-        }
-
-
-        .products-grid {
-
-            display: grid;
-
-            grid-template-columns:
-
-                repeat(
-
-                    auto-fit,
-
-                    minmax(280px, 1fr)
-
-                );
-
-            gap: 30px;
-
-        }
-
-
-        .product-card {
-
-            overflow: hidden;
-
-            background: var(--white);
-
-            border:
-
-                1px solid
-
-                rgba(48,32,79,0.06);
-
-            border-radius: 15px;
-
-            box-shadow: var(--shadow);
-
-            transition: 0.3s;
-
-        }
-
-
-        .product-card:hover {
-
-            transform: translateY(-8px);
-
-        }
-
-
-        .product-card img {
-
-            width: 100%;
-
-            height: 400px;
-
-            object-fit: cover;
-
-        }
-
-
-        .product-info {
-
-            padding: 20px;
-
-            text-align: center;
-
-        }
-
-
-        .product-title {
-
-            margin-bottom: 10px;
-
-            color: var(--primary-color);
-
-            font-size: 20px;
-
+            font-size: 2rem;
             font-weight: 700;
-
-        }
-
-
-        .product-desc {
-
-            margin-bottom: 18px;
-
-            color: var(--gray-text);
-
-            font-size: 14px;
-
-            line-height: 1.8;
-
-        }
-
-
-        /* ========================================
-           CONTACT BUTTONS
-        ======================================== */
-
-        .btn-phone,
-        .btn-whatsapp {
-
-            width: 100%;
-
-            padding: 12px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 8px;
-
-            border-radius: 8px;
-
-            color: var(--white);
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            transition: 0.3s;
-
-        }
-
-
-        .btn-phone {
-
-            background: var(--primary-color);
-
-        }
-
-
-        .btn-phone:hover {
-
-            background: var(--accent-color);
-
-        }
-
-
-        .btn-whatsapp {
-
-            background: #25D366;
-
-        }
-
-
-        .btn-whatsapp:hover {
-
-            background: #1eb956;
-
-        }
-
-
-        /* ========================================
-           CUSTOM ORDER
-        ======================================== */
-
-        .custom-order {
-
-            margin: 40px 5%;
-
-            padding: 70px 20px;
-
-            border-radius: 20px;
-
-            text-align: center;
-
-            color: var(--white);
-
-            background:
-
-                linear-gradient(
-
-                    135deg,
-
-                    rgba(48,32,79,0.95),
-
-                    rgba(75,49,112,0.95)
-
-                ),
-
-                url(
-                    'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200'
-                )
-
-                center / cover;
-
-        }
-
-
-        .custom-order h2 {
-
+            color: var(--brand-main);
             margin-bottom: 10px;
-
-            font-size: 32px;
-
-            font-weight: 800;
-
         }
 
-
-        .custom-order p {
-
-            max-width: 800px;
-
-            margin: 15px auto 25px;
-
-            font-size: 18px;
-
-            line-height: 1.9;
-
-            opacity: 0.95;
-
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
         }
 
+        .process-section {
+            padding: 80px 0;
+            background-color: var(--bg-secondary);
+        }
 
-        /* ========================================
-           CONTACT
-        ======================================== */
-
-        .contact-container {
-
+        .process-steps {
             display: grid;
-
-            grid-template-columns:
-
-                repeat(
-
-                    auto-fit,
-
-                    minmax(300px, 1fr)
-
-                );
-
-            gap: 30px;
-
-            padding: 40px;
-
-            background: var(--white);
-
-            border-radius: 20px;
-
-            box-shadow: var(--shadow);
-
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-
-        .contact-info h3 {
-
-            margin-bottom: 25px;
-
-            color: var(--primary-color);
-
-            font-size: 26px;
-
-            font-weight: 800;
-
-        }
-
-
-        .info-item {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            margin-bottom: 22px;
-
-            font-size: 16px;
-
-            line-height: 1.8;
-
-        }
-
-
-        .info-item i {
-
-            min-width: 30px;
-
-            color: var(--accent-color);
-
-            font-size: 24px;
-
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-main);
+            padding: 30px 20px;
             text-align: center;
-
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
         }
 
-
-        .contact-card {
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            align-items: center;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            text-align: center;
-
-            background: var(--bg-beige);
-
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-accent);
+            box-shadow: var(--shadow-hover);
         }
 
-
-        .contact-card h3 {
-
-            margin-bottom: 15px;
-
-            color: var(--primary-color);
-
-            font-weight: 800;
-
-        }
-
-
-        .contact-card p {
-
-            margin-bottom: 25px;
-
-            color: #555;
-
-            font-size: 15px;
-
-            line-height: 1.8;
-
-        }
-
-
-        .contact-buttons {
-
-            width: 100%;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 12px;
-
-        }
-
-
-        /* ========================================
-           FLOATING BUTTONS
-        ======================================== */
-
-        .floating-buttons {
-
-            position: fixed;
-
-            left: 20px;
-
-            bottom: 20px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 10px;
-
-            z-index: 2000;
-
-        }
-
-
-        .float-btn {
-
-            width: 58px;
-
-            height: 58px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
+        .step-number {
+            width: 38px;
+            height: 38px;
+            background: var(--brand-soft-pink);
+            color: var(--brand-accent);
             border-radius: 50%;
-
-            color: var(--white);
-
-            text-decoration: none;
-
-            font-size: 25px;
-
-            box-shadow:
-
-                2px 5px 15px
-
-                rgba(0,0,0,0.25);
-
-            transition: 0.3s;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 auto 15px;
         }
 
-
-        .float-btn:hover {
-
-            transform: scale(1.1);
-
+        .step-card i {
+            font-size: 1.8rem;
+            color: var(--brand-accent);
+            margin-bottom: 15px;
         }
 
-
-        .float-phone {
-
-            background: var(--primary-color);
-
+        .step-card h3 {
+            font-size: 1.05rem;
+            color: var(--brand-main);
+            margin-bottom: 8px;
         }
 
-
-        .float-whatsapp {
-
-            background: #25D366;
-
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
         }
 
+        .submit-design-section {
+            padding: 80px 0;
+        }
 
-        /* ========================================
-           FOOTER
-        ======================================== */
+        .submit-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px 30px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--brand-accent);
+        }
+
+        .submit-box h2 {
+            font-size: 2rem;
+            color: var(--brand-main);
+            margin-bottom: 15px;
+        }
+
+        .submit-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .catalog-teaser {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+
+        .placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .placeholder-card {
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-main);
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .placeholder-card i {
+            font-size: 2.2rem;
+            color: var(--brand-accent);
+            margin-bottom: 15px;
+        }
+
+        .placeholder-card h3 {
+            color: var(--brand-main);
+            font-size: 1.05rem;
+        }
+
+        .reviews-section {
+            padding: 80px 0;
+        }
+
+        .reviews-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .reviews-wrapper { grid-template-columns: 1fr; }
+        }
+
+        .review-form-container {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--brand-main);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-accent);
+            background: #FFFFFF;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            direction: ltr;
+            justify-content: flex-end;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .star-rating i {
+            color: #E6DDD8;
+            transition: var(--transition);
+        }
+
+        .star-rating i.active,
+        .star-rating i:hover,
+        .star-rating i:hover ~ i {
+            color: #D4AF37;
+        }
+
+        .reviews-display {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            padding: 22px;
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .stars { color: #D4AF37; }
+
+        .toast {
+            display: none;
+            background: #5B8C67;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
 
         footer {
+            background: #2C2428;
+            color: #FAF7F5;
+            padding: 50px 0 20px;
+        }
 
-            margin-top: 50px;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
 
-            padding: 30px 20px;
+        .footer-info { max-width: 400px; }
 
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contacts a, .footer-contacts div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #D3C8C3;
+            transition: var(--transition);
+        }
+
+        .footer-contacts a:hover { color: var(--brand-accent); }
+
+        .copyright {
             text-align: center;
-
-            color: var(--bg-beige);
-
-            background: var(--primary-color);
-
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #9C8F89;
+            font-size: 0.88rem;
         }
 
-
-        footer .brand {
-
-            margin-bottom: 5px;
-
-            font-size: 17px;
-
-            font-weight: 700;
-
+        .floating-action {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
         }
 
-
-        footer p {
-
-            line-height: 1.8;
-
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transition: var(--transition);
         }
 
-
-        footer .phone {
-
-            margin-top: 8px;
-
-            color: var(--gold-light);
-
-            font-weight: 700;
-
-        }
-
-
-        /* ========================================
-           MOBILE
-        ======================================== */
+        .float-btn.whatsapp { background: #25d366; }
+        .float-btn.phone { background: var(--brand-accent); }
+        .float-btn:hover { transform: scale(1.08); }
 
         @media (max-width: 768px) {
-
-            .top-bar {
-
-                flex-direction: column;
-
-                gap: 7px;
-
-                padding: 10px 15px;
-
-                text-align: center;
-
-                font-size: 13px;
-
-            }
-
-
-            nav {
-
-                padding: 7px 15px;
-
-            }
-
-
-            .logo-image {
-
-                width: 115px;
-
-                height: 65px;
-
-            }
-
-
-            .nav-links {
-
-                display: none;
-
-            }
-
-
-            .hero {
-
-                min-height: 78vh;
-
-                padding: 45px 18px;
-
-            }
-
-
-            .hero-logo {
-
-                width: min(310px, 90vw);
-
-            }
-
-
-            .hero p {
-
-                font-size: 17px;
-
-                line-height: 1.9;
-
-            }
-
-
-            .btn-main {
-
-                padding: 13px 24px;
-
-                font-size: 15px;
-
-            }
-
-
-            section {
-
-                padding: 60px 18px;
-
-            }
-
-
-            .section-title {
-
-                margin-bottom: 35px;
-
-            }
-
-
-            .section-title h2 {
-
-                font-size: 27px;
-
-            }
-
-
-            .categories-grid {
-
-                grid-template-columns: 1fr 1fr;
-
-                gap: 12px;
-
-            }
-
-
-            .category-card {
-
-                height: 230px;
-
-            }
-
-
-            .category-overlay {
-
-                padding: 14px 7px;
-
-            }
-
-
-            .category-overlay h3 {
-
-                font-size: 13px;
-
-            }
-
-
-            .products-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 22px;
-
-            }
-
-
-            .product-card img {
-
-                height: 390px;
-
-            }
-
-
-            .custom-order {
-
-                margin: 25px 15px;
-
-                padding: 55px 18px;
-
-            }
-
-
-            .custom-order h2 {
-
-                font-size: 25px;
-
-            }
-
-
-            .custom-order p {
-
-                font-size: 16px;
-
-            }
-
-
-            .contact-container {
-
-                padding: 25px 18px;
-
-            }
-
-
-            .floating-buttons {
-
-                left: 15px;
-
-                bottom: 15px;
-
-            }
-
-
-            .float-btn {
-
-                width: 52px;
-
-                height: 52px;
-
-                font-size: 22px;
-
-            }
-
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-logo-svg { width: 220px; }
+            .location-card { text-align: center; justify-content: center; }
+            .location-details { flex-direction: column; gap: 15px; }
+            .location-info { flex-direction: column; text-align: center; }
         }
-
-
-        @media (max-width: 420px) {
-
-            .categories-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .category-card {
-
-                height: 280px;
-
-            }
-
-
-            .hero-logo {
-
-                width: 280px;
-
-            }
-
-        }
-
     </style>
-
 </head>
-
-
 <body>
 
-
-    <!-- ========================================
-         TOP BAR
-    ======================================== -->
-
+    <!-- شريط العنوان العلوي مضافاً إليه مواعيد العمل -->
     <div class="top-bar">
-
-        <div class="location">
-
-            <i class="fa-solid fa-location-dot"></i>
-
-            <span>
-                الشرقية - القرين -
-                بجوار أشرف بتاع البوظة
-            </span>
-
+        <div class="container top-bar-content">
+            <div class="top-bar-group">
+                <div class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>الشرقية - القرين - بجوار أشرف بتاع البوظة</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="far fa-clock"></i>
+                    <span>مواعيد العمل: يومياً من 12:00 ظهراً حتى 10:00 مساءً</span>
+                </div>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:01145564652" style="color: inherit;">01145564652</a>
+            </div>
         </div>
-
-
-        <div class="contact-number">
-
-            <i class="fa-solid fa-phone"></i>
-
-            <a href="tel:01145564652">
-
-                01145564652
-
-            </a>
-
-        </div>
-
     </div>
 
-
-
-    <!-- ========================================
-         NAVBAR
-    ======================================== -->
-
-    <nav>
-
-        <a
-            href="#home"
-            class="brand-container"
-            title="OTAZYA"
-        >
-
-            <img
-                src="otazya-logo-transparent.png"
-                alt="OTAZYA Logo"
-                class="logo-image"
-            >
-
-        </a>
-
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#home">
-                    الرئيسية
+    <!-- الهيدر واللوجو أعلى اليمين -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo-container">
+                    <svg class="logo-svg" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" stroke="#34282E" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 160,8 C 158,14 162,18 166,13" stroke-width="3.2" />
+                            <ellipse cx="160" cy="27" rx="10" ry="9" stroke-width="3.2" />
+                            <path d="M 132,44 C 148,42 172,42 188,44" stroke-width="3.8" />
+                            <path d="M 160,45 L 137,67" stroke-width="3.8" />
+                            <path d="M 160,45 L 183,67" stroke-width="3.8" />
+                        </g>
+                        <text x="160" y="93" font-family="'Montserrat', sans-serif" font-size="25" font-weight="600" fill="#34282E" text-anchor="middle" letter-spacing="7">OTAZYA</text>
+                        <line x1="95" y1="102" x2="225" y2="102" stroke="#B8828C" stroke-width="0.8" opacity="0.7"/>
+                        <circle cx="160" cy="102" r="2.5" fill="#B8828C"/>
+                        <text x="160" y="115" font-family="'Montserrat', sans-serif" font-size="7.5" font-weight="500" fill="#B8828C" text-anchor="middle" letter-spacing="4">WEAR YOUR STORY</text>
+                    </svg>
                 </a>
-            </li>
 
-            <li>
-                <a href="#categories">
-                    الأقسام
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#process">خطوات الطلب</a></li>
+                    <li><a href="#submit-design">أرسلي تصميمك</a></li>
+                    <li><a href="#reviews">التقييمات</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <a href="https://wa.me/201145564652?text=مرحباً%20OTAZYA،%20أود%20الاستفسار%20عن%20تفصيل/طباعة%20تصميم%20خاص" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> تواصل معنا
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم البطل / Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            
+            <div class="hero-centered-logo">
+                <svg class="hero-logo-svg" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#34282E" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 160,8 C 158,14 162,18 166,13" stroke-width="3.2" />
+                        <ellipse cx="160" cy="27" rx="10" ry="9" stroke-width="3.2" />
+                        <path d="M 132,44 C 148,42 172,42 188,44" stroke-width="3.8" />
+                        <path d="M 160,45 L 137,67" stroke-width="3.8" />
+                        <path d="M 160,45 L 183,67" stroke-width="3.8" />
+                    </g>
+                    <text x="160" y="93" font-family="'Montserrat', sans-serif" font-size="25" font-weight="600" fill="#34282E" text-anchor="middle" letter-spacing="7">OTAZYA</text>
+                    <line x1="95" y1="102" x2="225" y2="102" stroke="#B8828C" stroke-width="0.8" opacity="0.7"/>
+                    <circle cx="160" cy="102" r="2.5" fill="#B8828C"/>
+                    <text x="160" y="115" font-family="'Montserrat', sans-serif" font-size="7.5" font-weight="500" fill="#B8828C" text-anchor="middle" letter-spacing="4">WEAR YOUR STORY</text>
+                </svg>
+            </div>
+
+            <span class="hero-badge"><i class="fas fa-sparkles"></i> تصميم وتفصيل أزياء حسب الطلب</span>
+            <h1>ارتدي قصتك بأسلوب فريد<br><span>WEAR YOUR STORY</span></h1>
+            <p>نُحوّل أفكارك وتصاميمك إلى أرقى قطع الملابس الحريمية بتفصيل متقن وخامات رفيعة المستوى. صممي مظهرك الخاص بعناية في OTAZYA.</p>
+            
+            <div class="hero-buttons">
+                <a href="https://wa.me/201145564652?text=مرحباً%20OTAZYA،%20أريد%20إرسال%20تصميمي%20المخصص%20للتفصيل/الطباعة" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> أرسلي تصميمك الآن
                 </a>
-            </li>
-
-            <li>
-                <a href="#catalog">
-                    الكتالوج
+                <a href="tel:01145564652" class="btn btn-outline">
+                    <i class="fas fa-phone-alt"></i> 01145564652
                 </a>
-            </li>
+            </div>
 
-            <li>
-                <a href="#custom">
-                    تفصيل خاص
+            <!-- كارت العنوان والمواعيد التفاعلي -->
+            <div class="location-card">
+                <div class="location-details">
+                    <div class="location-info">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div>
+                            <strong style="color: var(--brand-main); display: block;">مقر المعرض والورشة:</strong>
+                            <span style="color: var(--text-muted);">الشرقية - القرين - بجوار أشرف بتاع البوظة</span>
+                        </div>
+                    </div>
+                    <div class="location-info">
+                        <i class="far fa-clock"></i>
+                        <div>
+                            <strong style="color: var(--brand-main); display: block;">مواعيد العمل:</strong>
+                            <span style="color: var(--text-muted);">من 12:00 ظهراً إلى 10:00 مساءً</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=30.616750,31.739111" target="_blank" class="btn-map">
+                    <i class="fas fa-location-arrow"></i> افتحي الموقع على Google Maps
                 </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    العنوان والتواصل
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-
-
-    <!-- ========================================
-         HERO
-    ======================================== -->
-
-    <section
-        class="hero"
-        id="home"
-    >
-
-        <img
-            src="otazya-logo-transparent.png"
-            alt="OTAZYA - Wear Your Story"
-            class="hero-logo"
-        >
-
-
-        <p>
-
-            ارتدي قصتكِ بأناقة لا تُنسى..
-
-            نُصمّم ونُفصّل أحدث صيحات الفساتين
-
-            والأزياء الحريمي بلمسات راقية
-
-            ومقاسات مظبوطة.
-
-        </p>
-
-
-        <a
-            href="tel:01145564652"
-            class="btn-main"
-        >
-
-            <i class="fa-solid fa-phone"></i>
-
-            اتصلي بنا الآن
-
-        </a>
-
+            </div>
+        </div>
     </section>
 
+    <!-- قسم خطوات الطلب -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>خطوات تفصيل طلبك</h2>
+                <p>5 مراحل بسيطة لتحصلي على قطعتك المخصصة بكل إتقان</p>
+            </div>
 
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>التصميم</h3>
+                    <p>أرسلي لنا الصورة أو فكرة الفستان/القطعة عبر الواتساب.</p>
+                </div>
 
-    <!-- ========================================
-         CATEGORIES
-    ======================================== -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-ruler-vertical"></i>
+                    <h3>المقاسات</h3>
+                    <p>حددي المقاسات المطلوبة ونوع القماش واللون المفضّل.</p>
+                </div>
 
-    <section id="categories">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-tag"></i>
+                    <h3>تأكيد السعر</h3>
+                    <p>نراجع التفاصيل ونؤكد معك التكلفة وموعد الاستلام.</p>
+                </div>
 
-        <div class="section-title">
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-cut"></i>
+                    <h3>التنفيذ والقص</h3>
+                    <p>بدء التفصيل والطباعة بدقة عالية وخياطة احترافية.</p>
+                </div>
 
-            <h2>
-                أقسام OTAZYA
-            </h2>
-
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <i class="fas fa-gift"></i>
+                    <h3>التغليف والتوصيل</h3>
+                    <p>تغليف فاخر وأنيق ويصلك الطلب حتى باب المنزل.</p>
+                </div>
+            </div>
         </div>
-
-
-        <div class="categories-grid">
-
-
-            <div class="category-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600"
-                    alt="فساتين سهرة"
-                    loading="lazy"
-                >
-
-                <div class="category-overlay">
-
-                    <h3>
-                        فساتين سهرة وسواريه
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="category-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600"
-                    alt="عبايات"
-                    loading="lazy"
-                >
-
-                <div class="category-overlay">
-
-                    <h3>
-                        عبايات وتصاميم راقية
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="category-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600"
-                    alt="كاجوال"
-                    loading="lazy"
-                >
-
-                <div class="category-overlay">
-
-                    <h3>
-                        أطقم كاجوال شيك
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="category-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=600"
-                    alt="تفصيل خاص"
-                    loading="lazy"
-                >
-
-                <div class="category-overlay">
-
-                    <h3>
-                        أتيليه التفصيل الخاص
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
     </section>
 
-
-
-    <!-- ========================================
-         CATALOG
-    ======================================== -->
-
-    <section
-        id="catalog"
-        class="catalog-section"
-    >
-
-        <div class="section-title">
-
-            <h2>
-                أحدث معروضات OTAZYA
-            </h2>
-
+    <!-- قسم Submit تصميمك -->
+    <section id="submit-design" class="submit-design-section">
+        <div class="container">
+            <div class="submit-box">
+                <h2>جاهزة لتنفيذ موديلك الخاص؟</h2>
+                <p>اضغطي على الزر لإرسال صور الموديل والمقاسات مباشرة عبر الواتساب وسنتواصل معك فوراً لمناقشة التفاصيل.</p>
+                
+                <a href="https://wa.me/201145564652?text=مرحباً%20براند%20OTAZYA%F0%9F%8C%B8%0A%0Aأود%20إرسال%20تصميمي%20المخصص:%0A-%20المقاسات:%20%0A-%20اللون/نوع%20القماش:%20%0A-%20الصور/التفاصيل:%20" target="_blank" class="btn btn-primary" style="padding: 14px 36px; font-size: 1.02rem;">
+                    <i class="fab fa-whatsapp"></i> Submit تصميمك الآن
+                </a>
+            </div>
         </div>
-
-
-        <div class="products-grid">
-
-
-            <!-- PRODUCT 1 -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600"
-                    alt="فستان سهرة"
-                    loading="lazy"
-                >
-
-                <div class="product-info">
-
-                    <div class="product-title">
-                        فستان سهرة ملكي
-                    </div>
-
-                    <div class="product-desc">
-                        تصميم مخملي أنيق مطرز يدوياً
-                        للمناسبات الهامة.
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20فستان%20السهرة%20الملكي%20من%20OTAZYA"
-                        class="btn-whatsapp"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        اطلبي الآن عبر الواتساب
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PRODUCT 2 -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"
-                    alt="فستان خطوبة"
-                    loading="lazy"
-                >
-
-                <div class="product-info">
-
-                    <div class="product-title">
-                        فستان خطوبة رقيق
-                    </div>
-
-                    <div class="product-desc">
-                        قصة سمكة أنيقة بلون مميز
-                        وقماش عالي الجودة.
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20فستان%20الخطوبة%20من%20OTAZYA"
-                        class="btn-whatsapp"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        اطلبي الآن عبر الواتساب
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PRODUCT 3 -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600"
-                    alt="طقم كاجوال"
-                    loading="lazy"
-                >
-
-                <div class="product-info">
-
-                    <div class="product-title">
-                        طقم كاجوال عصري
-                    </div>
-
-                    <div class="product-desc">
-                        إطلالة مريحة وشيك بخامات ممتازة
-                        تناسب اليوم الكامل.
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20الطقم%20الكاجوال%20من%20OTAZYA"
-                        class="btn-whatsapp"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        اطلبي الآن عبر الواتساب
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PRODUCT 4 -->
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600"
-                    alt="بدلة حريمي"
-                    loading="lazy"
-                >
-
-                <div class="product-info">
-
-                    <div class="product-title">
-                        بدلة حريمي فورمال
-                    </div>
-
-                    <div class="product-desc">
-                        تفصيل متقن ورائع لإطلالة
-                        عملية وراقية.
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/201145564652?text=السلام%20عليكم،%20أريد%20الاستفسار%20عن%20البدلة%20الحريمي%20من%20OTAZYA"
-                        class="btn-whatsapp"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        اطلبي الآن عبر الواتساب
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
     </section>
 
-
-
-    <!-- ========================================
-         CUSTOM ORDER
-    ======================================== -->
-
-    <div
-        class="custom-order"
-        id="custom"
-    >
-
-        <h2>
-            عندكِ تصميم خاص وعايزة تنفذيه؟
-        </h2>
-
-
-        <p>
-
-            ابعتي لنا صورة الموديل ونحن ننفذه لكِ
-
-            في <strong>OTAZYA</strong>
-
-            بأعلى دقة وبالمقاسات المناسبة.
-
-        </p>
-
-
-        <a
-            href="https://wa.me/201145564652?text=السلام%20عليكم،%20معايا%20صورة%20موديل%20وعايزة%20أفصلها%20عند%20OTAZYA"
-            class="btn-main"
-            target="_blank"
-            rel="noopener"
-        >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            ابعتي تصميمكِ على واتساب
-
-        </a>
-
-    </div>
-
-
-
-    <!-- ========================================
-         CONTACT
-    ======================================== -->
-
-    <section id="contact">
-
-        <div class="section-title">
-
-            <h2>
-                زورونا في OTAZYA
-            </h2>
-
-        </div>
-
-
-        <div class="contact-container">
-
-
-            <div class="contact-info">
-
-                <h3>
-                    معلومات الاتصال والعنوان
-                </h3>
-
-
-                <div class="info-item">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <div>
-
-                        <strong>
-                            العنوان:
-                        </strong>
-
-                        <br>
-
-                        الشرقية - القرين -
-                        بجوار أشرف بتاع البوظة
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                    <div>
-
-                        <strong>
-                            رقم الاتصال:
-                        </strong>
-
-                        <br>
-
-                        01145564652
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    <div>
-
-                        <strong>
-                            واتساب:
-                        </strong>
-
-                        <br>
-
-                        01145564652
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="fa-solid fa-clock"></i>
-
-                    <div>
-
-                        <strong>
-                            مواعيد العمل:
-                        </strong>
-
-                        <br>
-
-                        يومياً من الساعة
-                        12 ظهراً حتى 10 مساءً
-
-                    </div>
-
-                </div>
-
+    <!-- قسم الكتالوج والمنتجات -->
+    <section class="catalog-teaser">
+        <div class="container">
+            <div class="section-title">
+                <h2>الكتالوج والتصاميم</h2>
+                <p>قريباً.. استعرضي أحدث الموديلات وتشكيلة الكولكشن الجديد</p>
             </div>
 
-
-
-            <!-- DIRECT CONTACT -->
-
-            <div class="contact-card">
-
-                <h3>
-                    تواصل مباشر
-                </h3>
-
-
-                <p>
-
-                    اختاري الطريقة المناسبة لكِ
-                    للتواصل مع OTAZYA.
-
-                </p>
-
-
-                <div class="contact-buttons">
-
-
-                    <!-- CALL -->
-
-                    <a
-                        href="tel:01145564652"
-                        class="btn-phone"
-                    >
-
-                        <i class="fa-solid fa-phone"></i>
-
-                        اتصال مباشر
-
-                    </a>
-
-
-                    <!-- WHATSAPP -->
-
-                    <a
-                        href="https://wa.me/201145564652"
-                        class="btn-whatsapp"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        فتح واتساب
-
-                    </a>
-
-
+            <div class="placeholder-grid">
+                <div class="placeholder-card">
+                    <i class="fas fa-female"></i>
+                    <h3>فساتين وموديلات كاجوال</h3>
+                    <p>متاحة قريباً للشراء المباشر</p>
                 </div>
-
+                <div class="placeholder-card">
+                    <i class="fas fa-user-style"></i>
+                    <h3>قطع تفصيل خاصة</h3>
+                    <p>تصاميم حصرية باسم OTAZYA</p>
+                </div>
+                <div class="placeholder-card">
+                    <i class="fas fa-star-of-life"></i>
+                    <h3>عروض الكولكشن</h3>
+                    <p>خصومات على طلبات التفصيل المجمعة</p>
+                </div>
             </div>
-
-
         </div>
-
     </section>
 
+    <!-- قسم التقييمات -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>آراء و تقييمات العميلات</h2>
+                <p>شاركينا تجربتك مع تفصيل وجودة منتجات OTAZYA</p>
+            </div>
 
+            <div class="reviews-wrapper">
+                <div class="review-form-container">
+                    <h3 style="margin-bottom: 20px; color: var(--brand-main);">أضيفي تقييمك</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label>الاسم</label>
+                            <input type="text" id="reviewerName" class="form-control" placeholder="اكتبي اسمك الكريم" required>
+                        </div>
+                        <div class="form-group">
+                            <label>التقييم بالنجوم</label>
+                            <div class="star-rating" id="starRating">
+                                <i class="fas fa-star" data-rating="5"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="1"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>رأيك في الجودة والخياطة</label>
+                            <textarea id="reviewText" class="form-control" rows="4" placeholder="اكتبي رأيك بكل صراحة..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال التقييم للمراجعة</button>
+                    </form>
+                    <div id="toastMessage" class="toast">
+                        <i class="fas fa-check-circle"></i> شكراً لتقييمك! تم إرسال رأيك للمراجعة وسيطهر على الموقع فور اعتماده.
+                    </div>
+                </div>
 
-    <!-- ========================================
-         FLOATING BUTTONS
-    ======================================== -->
+                <div class="reviews-display">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <strong style="color: var(--brand-main);">سارة علي</strong>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-muted);">التفصيل طلع تحفة والمقاس مظبوط بالملي والخامة ممتازة جداً. تسلم إيديكم!</p>
+                    </div>
 
-    <div class="floating-buttons">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <strong style="color: var(--brand-main);">منار حسن</strong>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-muted);">بعت التصميم على الواتساب ونفذوه لي زي الصورة بالظبط والتوصيل في الميعاد. تجربة رائعة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-        <!-- WhatsApp -->
-
-        <a
-            href="https://wa.me/201145564652"
-            class="float-btn float-whatsapp"
-            target="_blank"
-            rel="noopener"
-            title="واتساب OTAZYA"
-        >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-        </a>
-
-
-        <!-- Phone -->
-
-        <a
-            href="tel:01145564652"
-            class="float-btn float-phone"
-            title="اتصل بـ OTAZYA"
-        >
-
-            <i class="fa-solid fa-phone"></i>
-
-        </a>
-
-
-    </div>
-
-
-
-    <!-- ========================================
-         FOOTER
-    ======================================== -->
-
+    <!-- الفوتر مع مواعيد العمل -->
     <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <svg class="logo-svg" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" style="height: 60px; margin-bottom: 10px;">
+                        <g fill="none" stroke="#FAF7F5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 160,8 C 158,14 162,18 166,13" stroke-width="3.2" />
+                            <ellipse cx="160" cy="27" rx="10" ry="9" stroke-width="3.2" />
+                            <path d="M 132,44 C 148,42 172,42 188,44" stroke-width="3.8" />
+                            <path d="M 160,45 L 137,67" stroke-width="3.8" />
+                            <path d="M 160,45 L 183,67" stroke-width="3.8" />
+                        </g>
+                        <text x="160" y="93" font-family="'Montserrat', sans-serif" font-size="25" font-weight="600" fill="#FAF7F5" text-anchor="middle" letter-spacing="7">OTAZYA</text>
+                        <line x1="95" y1="102" x2="225" y2="102" stroke="#B8828C" stroke-width="0.8" opacity="0.7"/>
+                        <circle cx="160" cy="102" r="2.5" fill="#B8828C"/>
+                        <text x="160" y="115" font-family="'Montserrat', sans-serif" font-size="7.5" font-weight="500" fill="#B8828C" text-anchor="middle" letter-spacing="4">WEAR YOUR STORY</text>
+                    </svg>
+                    <p style="color: #A89891;">براند تفصيل وتصميم الأزياء الحريمية. نساعدك لترتدي أسلوبك الفريد بكل أناقة.</p>
+                </div>
 
-        <p class="brand">
-            OTAZYA — Wear Your Story
-        </p>
+                <div class="footer-contacts">
+                    <h4 style="color: #fff; margin-bottom: 5px;">تواصل معنا وتفضلي بزيارتنا</h4>
+                    <div><i class="fas fa-map-marker-alt" style="color: var(--brand-accent);"></i> العنوان: الشرقية - القرين - بجوار أشرف بتاع البوظة</div>
+                    <div><i class="far fa-clock" style="color: var(--brand-accent);"></i> مواعيد العمل: يومياً من 12:00 ظهراً إلى 10:00 مساءً</div>
+                    <a href="tel:01145564652"><i class="fas fa-phone" style="color: var(--brand-accent);"></i> 01145564652</a>
+                    <a href="https://wa.me/201145564652" target="_blank"><i class="fab fa-whatsapp" style="color: #25d366;"></i> واتساب مباشر: 01145564652</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=30.616750,31.739111" target="_blank" style="color: var(--brand-accent);"><i class="fas fa-directions"></i> افتحي اتجاهات Google Maps</a>
+                </div>
+            </div>
 
-
-        <p>
-            جميع الحقوق محفوظة © 2026
-            | القرين - الشرقية
-        </p>
-
-
-        <p class="phone">
-            01145564652
-        </p>
-
+            <div class="copyright">
+                <p>&copy; 2026 OTAZYA - جميع الحقوق محفوظة | WEAR YOUR STORY</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- أزرار الاتصال والواتساب العائمة -->
+    <div class="floating-action">
+        <a href="https://wa.me/201145564652?text=مرحباً%20OTAZYA" target="_blank" class="float-btn whatsapp" title="واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:01145564652" class="float-btn phone" title="إتصال مباشر">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
 
+    <!-- JavaScript للتقييمات والتفاعل -->
+    <script>
+        const stars = document.querySelectorAll('#starRating i');
+        let selectedRating = 5;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                selectedRating = this.getAttribute('data-rating');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= selectedRating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toastMessage');
+            toast.style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 6000);
+        });
+    </script>
 </body>
-
 </html>
