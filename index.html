@@ -24,7 +24,6 @@
             --shadow-sm: 0 4px 15px rgba(48, 26, 52, 0.05);
             --shadow-md: 0 8px 30px rgba(48, 26, 52, 0.08);
             --whatsapp-green: #25D366;
-            --google-blue: #4285F4;
         }
 
         :root[data-theme="dark"] {
@@ -37,7 +36,6 @@
             --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
             --whatsapp-green: #25D366;
-            --google-blue: #4285F4;
         }
 
         /* =========================================================
@@ -156,7 +154,6 @@
             color: var(--bg-main);
         }
 
-        /* زر القائمة المنسدلة للهواتف */
         .menu-toggle {
             display: none;
             background: none;
@@ -326,37 +323,11 @@
         }
 
         /* =========================================================
-           7. قسم التقييمات وكتابة التعليق ورابط جوجل
+           7. قسم التقييمات وكتابة التعليق
            ========================================================= */
         .reviews-section {
             padding: 60px 0;
             background-color: var(--bg-secondary);
-        }
-
-        .google-badge-box {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .google-link-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: var(--bg-card);
-            color: var(--text-primary);
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: var(--shadow-sm);
-            flex-wrap: wrap;
-        }
-
-        .google-link-btn:hover {
-            border-color: var(--google-blue);
         }
 
         .reviews-grid {
@@ -407,7 +378,6 @@
             opacity: 0.8;
         }
 
-        /* صندوق إضافة تعليق/تقييم جديد */
         .add-review-box {
             max-width: 650px;
             margin: 0 auto;
@@ -469,39 +439,31 @@
         }
 
         /* =========================================================
-           8. قسم العنوان والموقع والتواصل
+           8. قسم العنوان والتواصل
            ========================================================= */
         .location-section {
             padding: 60px 0;
         }
 
-        .location-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            align-items: stretch;
-        }
-
-        .location-info {
+        .location-card {
+            max-width: 650px;
+            margin: 0 auto;
             background-color: var(--bg-card);
-            padding: 30px 20px;
+            padding: 35px 25px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            box-shadow: var(--shadow-md);
         }
 
         .info-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 22px;
         }
 
         .info-item span {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
         .info-item h4 {
@@ -512,29 +474,29 @@
 
         .info-item p, .info-item a {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-decoration: none;
         }
 
         .contact-buttons-wrapper {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
         .action-btn {
             flex: 1;
-            min-width: 120px;
+            min-width: 130px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 12px 14px;
+            gap: 8px;
+            padding: 12px 16px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
@@ -556,22 +518,6 @@
         .action-btn-email {
             background-color: #4285F4;
             color: #FFFFFF;
-        }
-
-        .map-box {
-            width: 100%;
-            min-height: 320px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 320px;
-            border: 0;
         }
 
         /* =========================================================
@@ -629,7 +575,7 @@
         }
 
         /* =========================================================
-           11. التجاوب مع شاشات الهواتف والأجهزة اللوحية (Media Queries)
+           11. التجاوب مع شاشات الهواتف والأجهزة اللوحية
            ========================================================= */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -692,7 +638,7 @@
                 <li><a href="#steps" onclick="closeMenu()">خطوات الطلب</a></li>
                 <li><a href="#send-design" onclick="closeMenu()">أرسلي تصميمك</a></li>
                 <li><a href="#reviews" onclick="closeMenu()">التقييمات</a></li>
-                <li><a href="#location" onclick="closeMenu()">العنوان والموقع</a></li>
+                <li><a href="#location" onclick="closeMenu()">العنوان والفرع</a></li>
             </ul>
         </nav>
     </header>
@@ -773,20 +719,11 @@
         </div>
     </section>
 
-    <!-- قسم التقييمات وقوقل وكتابة رأي جديد -->
+    <!-- قسم التقييمات وكتابة رأي جديد -->
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title">تقييمات عميلاتنا</h2>
             <p class="section-desc">آراء ونظرات من جربن تجربة التفصيل مع OTAZYA</p>
-
-            <!-- شارة ورابط متجر جوجل -->
-            <div class="google-badge-box">
-                <a href="https://maps.google.com/maps?q=30.616750,31.739111" target="_blank" class="google-link-btn">
-                    <span>📍 المتجر موثق على Google Maps</span>
-                    <span style="color: #FFB800;">★ 5.0</span>
-                    <span style="color: #4285F4; text-decoration: underline;">قيمنا على جوجل</span>
-                </a>
-            </div>
 
             <!-- شبكة التقييمات المعروضة -->
             <div class="reviews-grid" id="reviewsGrid">
@@ -855,62 +792,48 @@
         </div>
     </section>
 
-    <!-- قسم العنوان والموقع والتواصل -->
+    <!-- قسم العنوان والتواصل -->
     <section id="location" class="location-section">
         <div class="container">
-            <h2 class="section-title">العنوان والموقع</h2>
-            <p class="section-desc">سعداء بزيارتك لنا في المتجر أو التواصل المباشر معنا</p>
+            <h2 class="section-title">العنوان والتواصل</h2>
+            <p class="section-desc">سعداء بزيارتك لنا في الفرع أو التواصل المباشر معنا</p>
 
-            <div class="location-grid">
-                <div class="location-info">
+            <div class="location-card">
+                <div class="info-item">
+                    <span>📍</span>
                     <div>
-                        <div class="info-item">
-                            <span>📍</span>
-                            <div>
-                                <h4>العنوان بالتفصيل</h4>
-                                <p>محافظة الشرقية، مدينة القرين (بجوار أشرف بتاع البوظة)</p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <span>📞</span>
-                            <div>
-                                <h4>رقم الهاتف</h4>
-                                <p>01154464652</p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <span>✉️</span>
-                            <div>
-                                <h4>البريد الإلكتروني (الإيميل)</h4>
-                                <p><a href="mailto:otazya2023@gmail.com">otazya2023@gmail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- أزرار الاتصال والتواصل -->
-                    <div class="contact-buttons-wrapper">
-                        <a href="https://wa.me/201154464652?text=مرحباً%20OTAZYA👋%20عايزة%20أعمل%20تصميم%20جديد" target="_blank" class="action-btn action-btn-wa">
-                            💬 واتساب
-                        </a>
-                        <a href="tel:01154464652" class="action-btn action-btn-call">
-                            📞 اتصل بنا
-                        </a>
-                        <a href="mailto:otazya2023@gmail.com" class="action-btn action-btn-email">
-                            ✉️ راسلنا
-                        </a>
+                        <h4>عنوان الفرع</h4>
+                        <p>الشرقية - القرين (بجوار أشرف بتاع البوظة)</p>
                     </div>
                 </div>
 
-                <!-- خريطة موقع الفرع على جوجل -->
-                <div class="map-box">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=30.616750,31.739111&hl=ar&z=16&output=embed" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <div class="info-item">
+                    <span>📞</span>
+                    <div>
+                        <h4>رقم الهاتف</h4>
+                        <p>01154464652</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span>✉️</span>
+                    <div>
+                        <h4>البريد الإلكتروني</h4>
+                        <p><a href="mailto:otazya2023@gmail.com">otazya2023@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <!-- أزرار التواصل السريع -->
+                <div class="contact-buttons-wrapper">
+                    <a href="https://wa.me/201154464652?text=مرحباً%20OTAZYA👋%20عايزة%20أعمل%20تصميم%20جديد" target="_blank" class="action-btn action-btn-wa">
+                        💬 واتساب
+                    </a>
+                    <a href="tel:01154464652" class="action-btn action-btn-call">
+                        📞 اتصل بنا
+                    </a>
+                    <a href="mailto:otazya2023@gmail.com" class="action-btn action-btn-email">
+                        ✉️ راسلنا
+                    </a>
                 </div>
             </div>
         </div>
@@ -953,7 +876,6 @@
             const ratingNum = parseInt(document.getElementById('reviewerRating').value);
             const text = document.getElementById('reviewerText').value;
 
-            // إخفاء أجزاء من الإيميل للحفاظ على الخصوصية
             const maskedEmail = email.replace(/(^.)[^@]*(@.*)/, "$1***$2");
             const stars = '★'.repeat(ratingNum) + '☆'.repeat(5 - ratingNum);
 
