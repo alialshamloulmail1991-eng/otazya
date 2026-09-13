@@ -23,7 +23,8 @@
             --border-color: #E6DCD3;     /* الحدود الناعمة */
             --shadow-sm: 0 4px 15px rgba(48, 26, 52, 0.05);
             --shadow-md: 0 8px 30px rgba(48, 26, 52, 0.08);
-            --whatsapp-green: #25D366;   /* لون الواتساب المعتمد */
+            --whatsapp-green: #25D366;
+            --google-blue: #4285F4;
         }
 
         :root[data-theme="dark"] {
@@ -36,6 +37,7 @@
             --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
             --whatsapp-green: #25D366;
+            --google-blue: #4285F4;
         }
 
         /* =========================================================
@@ -68,7 +70,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: clamp(1.6rem, 4vw, 2.3rem);
             font-weight: 800;
             margin-bottom: 10px;
             color: var(--text-primary);
@@ -76,17 +78,17 @@
 
         .section-desc {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             color: var(--text-muted);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         /* =========================================================
-           3. الهيدر وشريط التنقل
+           3. الهيدر وشريط التنقل المتجاوب
            ========================================================= */
         header {
             width: 100%;
-            padding: 18px 8%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -95,6 +97,12 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .nav-links {
@@ -131,15 +139,16 @@
             background: transparent;
             border: 1.5px solid var(--text-primary);
             color: var(--text-primary);
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            white-space: nowrap;
         }
 
         .theme-toggle-btn:hover {
@@ -147,11 +156,22 @@
             color: var(--bg-main);
         }
 
+        /* زر القائمة المنسدلة للهواتف */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 5px;
+        }
+
         /* =========================================================
-           4. الواجهة الرئيسية وشعار SVG (Hero Section)
+           4. الواجهة الرئيسية وشعار SVG
            ========================================================= */
         .hero {
-            min-height: 80vh;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -161,9 +181,9 @@
         }
 
         .logo-container {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             width: 100%;
-            max-width: 270px;
+            max-width: clamp(200px, 50vw, 270px);
         }
 
         .brand-logo-svg {
@@ -175,18 +195,18 @@
         }
 
         .sub-tagline {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: 500;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .main-title {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
             font-weight: 800;
             color: var(--text-primary);
             line-height: 1.2;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .hero-actions {
@@ -194,6 +214,8 @@
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
+            width: 100%;
+            max-width: 500px;
         }
 
         .btn-primary {
@@ -203,10 +225,10 @@
             gap: 10px;
             background-color: var(--text-primary);
             color: var(--bg-main);
-            padding: 14px 38px;
+            padding: 14px 32px;
             border-radius: 30px;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             box-shadow: var(--shadow-md);
             border: none;
@@ -228,19 +250,19 @@
            5. قسم خطوات الطلب
            ========================================================= */
         .steps-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background-color: var(--bg-secondary);
         }
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
 
         .step-card {
             background-color: var(--bg-card);
-            padding: 35px 25px;
+            padding: 30px 20px;
             border-radius: 16px;
             text-align: center;
             border: 1px solid var(--border-color);
@@ -258,69 +280,95 @@
             justify-content: center;
             font-weight: 800;
             font-size: 1.2rem;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 18px auto;
         }
 
         .step-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--text-primary);
         }
 
         .step-card p {
             color: var(--text-muted);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
         }
 
         /* =========================================================
-           6. قسم أرسلي تصميمك (الزر المباشر)
+           6. قسم أرسلي تصميمك
            ========================================================= */
         .design-section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .design-card-box {
             max-width: 650px;
             margin: 0 auto;
             background-color: var(--bg-card);
-            padding: 50px 30px;
-            border-radius: 24px;
+            padding: 40px 20px;
+            border-radius: 20px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
             text-align: center;
         }
 
         .design-card-box p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .btn-large-wa {
-            font-size: 1.25rem;
-            padding: 16px 45px;
+            font-size: 1.15rem;
+            padding: 15px 30px;
             border-radius: 35px;
             width: 100%;
-            max-width: 420px;
         }
 
         /* =========================================================
-           7. قسم التقييمات
+           7. قسم التقييمات وكتابة التعليق ورابط جوجل
            ========================================================= */
         .reviews-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background-color: var(--bg-secondary);
+        }
+
+        .google-badge-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .google-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
+
+        .google-link-btn:hover {
+            border-color: var(--google-blue);
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .review-card {
             background-color: var(--bg-card);
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
@@ -328,40 +376,115 @@
 
         .review-stars {
             color: #FFB800;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
 
         .review-text {
             color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.98rem;
+            margin-bottom: 15px;
             font-style: italic;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
         }
 
         .review-author {
             font-weight: 700;
-            color: var(--text-muted);
+        }
+
+        .review-email {
+            font-size: 0.8rem;
+            direction: ltr;
+            opacity: 0.8;
+        }
+
+        /* صندوق إضافة تعليق/تقييم جديد */
+        .add-review-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .add-review-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
             font-size: 0.95rem;
         }
 
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--text-primary);
+        }
+
         /* =========================================================
-           8. قسم العنوان والموقع والتواصل والمواعيد
+           8. قسم العنوان والموقع والتواصل
            ========================================================= */
         .location-section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .location-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             align-items: stretch;
         }
 
         .location-info {
             background-color: var(--bg-card);
-            padding: 35px;
+            padding: 30px 20px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
@@ -373,45 +496,45 @@
         .info-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 22px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .info-item span {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
 
         .info-item h4 {
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .info-item p, .info-item a {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
         }
 
         .contact-buttons-wrapper {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 15px;
             flex-wrap: wrap;
         }
 
         .action-btn {
             flex: 1;
-            min-width: 140px;
+            min-width: 120px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 12px 20px;
+            gap: 6px;
+            padding: 12px 14px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
@@ -428,6 +551,11 @@
         .action-btn-call {
             background-color: var(--text-primary);
             color: var(--bg-main);
+        }
+
+        .action-btn-email {
+            background-color: #4285F4;
+            color: #FFFFFF;
         }
 
         .map-box {
@@ -447,21 +575,21 @@
         }
 
         /* =========================================================
-           9. زر الواتساب العائم (Floating WhatsApp Button)
+           9. زر الواتساب العائم
            ========================================================= */
         .floating-wa-btn {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
+            bottom: 20px;
+            left: 20px;
             background-color: #25D366;
             color: #FFFFFF;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             text-decoration: none;
             z-index: 9999;
@@ -473,65 +601,100 @@
         }
 
         /* =========================================================
-           10. الفوتر ومواعيد العمل
+           10. الفوتر
            ========================================================= */
         footer {
             background-color: var(--bg-secondary);
-            padding: 40px 0 25px 0;
+            padding: 35px 15px 20px 15px;
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
 
         .footer-hours {
-            margin-bottom: 18px;
-            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-primary);
         }
 
-        .footer-copy {
-            color: var(--text-muted);
+        .footer-email {
+            margin-bottom: 15px;
             font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           11. التجاوب مع شاشات الهواتف والأجهزة اللوحية (Media Queries)
+           ========================================================= */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
+            .menu-toggle {
+                display: block;
             }
+
             .nav-links {
-                gap: 15px;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background-color: var(--bg-card);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 18px;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow-md);
+                display: none;
             }
-            .main-title {
-                font-size: 2.3rem;
+
+            .nav-links.active {
+                display: flex;
             }
+
             .hero-actions {
                 flex-direction: column;
-                width: 100%;
             }
+
             .btn-primary {
                 width: 100%;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .action-btn {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر العلوي -->
+    <!-- الهيدر العلوي المتجاوب -->
     <header>
+        <div class="header-controls">
+            <button class="menu-toggle" id="menuToggleBtn" aria-label="فتح القائمة">☰</button>
+            
+            <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="تبديل الوضع">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">الوضع الداكن</span>
+            </button>
+        </div>
+
         <nav>
-            <ul class="nav-links">
-                <li><a href="#steps">خطوات الطلب</a></li>
-                <li><a href="#send-design">أرسلي تصميمك</a></li>
-                <li><a href="#reviews">التقييمات</a></li>
-                <li><a href="#location">العنوان والموقع</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#steps" onclick="closeMenu()">خطوات الطلب</a></li>
+                <li><a href="#send-design" onclick="closeMenu()">أرسلي تصميمك</a></li>
+                <li><a href="#reviews" onclick="closeMenu()">التقييمات</a></li>
+                <li><a href="#location" onclick="closeMenu()">العنوان والموقع</a></li>
             </ul>
         </nav>
-
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="تبديل الوضع">
-            <span id="themeIcon">🌙</span>
-            <span id="themeText">الوضع الداكن</span>
-        </button>
     </header>
 
     <!-- الواجهة الرئيسية -->
@@ -557,7 +720,6 @@
         <p class="sub-tagline">تصميم وتفصيل أزياء حسب الطلب</p>
         <h1 class="main-title">قصتك بأسلوبك</h1>
 
-        <!-- أزرار الإجراءات الرئيسية -->
         <div class="hero-actions">
             <a href="#send-design" class="btn-primary">✨ ابدأي تصميمك الآن</a>
             <a href="https://wa.me/201154464652?text=مرحباً%20OTAZYA👋%20عايزة%20أعمل%20تصميم%20جديد" target="_blank" class="btn-primary btn-whatsapp">💬 تواصل عبر الواتساب</a>
@@ -595,11 +757,11 @@
         </div>
     </section>
 
-    <!-- قسم أرسلي تصميمك المباشر للواتساب -->
+    <!-- قسم أرسلي تصميمك -->
     <section id="send-design" class="design-section">
         <div class="container">
             <h2 class="section-title">أرسلي تصميمك</h2>
-            <p class="section-desc">عندك صورة تصميم أو فكرة معينة تحبين تفصيلها؟ اضغطي بالأسفل وتواصلي معنا فوراً عبر الواتساب</p>
+            <p class="section-desc">عندك صورة تصميم أو فكرة معينة تحبين تفصيلها؟ تواصلي معنا فوراً عبر الواتساب</p>
 
             <div class="design-card-box">
                 <p>اضغطي على الزر للتحدث المباشر مع فريق OTAZYA ومشاركتنا صورتك أو التفاصيل التي ترغبين بها ✨</p>
@@ -611,39 +773,93 @@
         </div>
     </section>
 
-    <!-- قسم التقييمات -->
+    <!-- قسم التقييمات وقوقل وكتابة رأي جديد -->
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title">تقييمات عميلاتنا</h2>
             <p class="section-desc">آراء ونظرات من جربن تجربة التفصيل مع OTAZYA</p>
 
-            <div class="reviews-grid">
+            <!-- شارة ورابط متجر جوجل -->
+            <div class="google-badge-box">
+                <a href="https://maps.google.com/maps?q=30.616750,31.739111" target="_blank" class="google-link-btn">
+                    <span>📍 المتجر موثق على Google Maps</span>
+                    <span style="color: #FFB800;">★ 5.0</span>
+                    <span style="color: #4285F4; text-decoration: underline;">قيمنا على جوجل</span>
+                </a>
+            </div>
+
+            <!-- شبكة التقييمات المعروضة -->
+            <div class="reviews-grid" id="reviewsGrid">
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"التفصيل طالع مظبوط بالملي والخامة تحفة بجد! نفس الصورة اللي أرسلتها بالظبط."</p>
-                    <p class="review-author">- سارة أ.</p>
+                    <div class="review-meta">
+                        <span class="review-author">سارة أحمد</span>
+                        <span class="review-email">sara.a***@gmail.com</span>
+                    </div>
                 </div>
 
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"اهتمام ممتاز بالتفاصيل والسرعة في التسليم بجد شغل يشرّف وشكراً على الذوق."</p>
-                    <p class="review-author">- مريم خ.</p>
+                    <div class="review-meta">
+                        <span class="review-author">مريم خليل</span>
+                        <span class="review-email">marian.k***@yahoo.com</span>
+                    </div>
                 </div>
 
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"تجربة رائعة من أول التواصل لحد الاستلام. بجد هعتمد OTAZYA في كل فساتيني."</p>
-                    <p class="review-author">- نورهان م.</p>
+                    <div class="review-meta">
+                        <span class="review-author">نورهان محمود</span>
+                        <span class="review-email">nour.m***@gmail.com</span>
+                    </div>
                 </div>
+            </div>
+
+            <!-- نموذج إضافة تقييم جديد -->
+            <div class="add-review-box">
+                <h3 class="add-review-title">✨ شاركينا رأيك وتجربتك مع OTAZYA</h3>
+                <form id="addReviewForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reviewerName">الاسم بالكامل</label>
+                            <input type="text" id="reviewerName" placeholder="مثال: أسماء محمد" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewerEmail">البريد الإلكتروني (الإيميل)</label>
+                            <input type="email" id="reviewerEmail" placeholder="example@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewerRating">اختر التقييم</label>
+                        <select id="reviewerRating" required>
+                            <option value="5">★★★★★ (5 من 5)</option>
+                            <option value="4">★★★★☆ (4 من 5)</option>
+                            <option value="3">★★★☆☆ (3 من 5)</option>
+                            <option value="2">★★☆☆☆ (2 من 5)</option>
+                            <option value="1">★☆☆☆☆ (1 من 5)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewerText">رأيك وتجربتك</label>
+                        <textarea id="reviewerText" rows="3" placeholder="اكتبي تعليقك ورأيك في التفصيل والخدمة..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%;">إضافة التقييم ✨</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- قسم العنوان والموقع والتواصل الأكيد -->
+    <!-- قسم العنوان والموقع والتواصل -->
     <section id="location" class="location-section">
         <div class="container">
             <h2 class="section-title">العنوان والموقع</h2>
-            <p class="section-desc">سعداء بزيارتك لنا في المتجر أو التواصل المباشر مع فريقنا</p>
+            <p class="section-desc">سعداء بزيارتك لنا في المتجر أو التواصل المباشر معنا</p>
 
             <div class="location-grid">
                 <div class="location-info">
@@ -659,24 +875,35 @@
                         <div class="info-item">
                             <span>📞</span>
                             <div>
-                                <h4>رقم الهاتف المعتمد</h4>
+                                <h4>رقم الهاتف</h4>
                                 <p>01154464652</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span>✉️</span>
+                            <div>
+                                <h4>البريد الإلكتروني (الإيميل)</h4>
+                                <p><a href="mailto:otazya2023@gmail.com">otazya2023@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- أزرار اتصال ومحادثة مباشرين -->
+                    <!-- أزرار الاتصال والتواصل -->
                     <div class="contact-buttons-wrapper">
                         <a href="https://wa.me/201154464652?text=مرحباً%20OTAZYA👋%20عايزة%20أعمل%20تصميم%20جديد" target="_blank" class="action-btn action-btn-wa">
-                            💬 فتح محادثة الواتساب
+                            💬 واتساب
                         </a>
                         <a href="tel:01154464652" class="action-btn action-btn-call">
-                            📞 إجراء مكالمة هاتفية
+                            📞 اتصل بنا
+                        </a>
+                        <a href="mailto:otazya2023@gmail.com" class="action-btn action-btn-email">
+                            ✉️ راسلنا
                         </a>
                     </div>
                 </div>
 
-                <!-- خريطة موقع الفرع -->
+                <!-- خريطة موقع الفرع على جوجل -->
                 <div class="map-box">
                     <iframe 
                         src="https://maps.google.com/maps?q=30.616750,31.739111&hl=ar&z=16&output=embed" 
@@ -694,16 +921,59 @@
         💬
     </a>
 
-    <!-- الفوتر مع مواعيد العمل بأسفل الصفحة -->
+    <!-- الفوتر -->
     <footer>
         <div class="container">
             <p class="footer-hours">🕒 مواعيد العمل اليومية: من الساعة 12:00 ظهراً وحتى 10:00 مساءً</p>
+            <p class="footer-email">✉️ للتواصل عبر البريد الإلكتروني: otazya2023@gmail.com</p>
             <p class="footer-copy">جميع الحقوق محفوظة © 2026 OTAZYA - WEAR YOUR STORY</p>
         </div>
     </footer>
 
-    <!-- السكريبت الخاص بتبديل الثيم فقط -->
+    <!-- السكريبتات التفاعلية -->
     <script>
+        // 1. فتح وإغلاق قائمة الهاتف المحمول
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+        }
+
+        // 2. إضافة تقييم جديد ديناميكياً
+        document.getElementById('addReviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('reviewerName').value;
+            const email = document.getElementById('reviewerEmail').value;
+            const ratingNum = parseInt(document.getElementById('reviewerRating').value);
+            const text = document.getElementById('reviewerText').value;
+
+            // إخفاء أجزاء من الإيميل للحفاظ على الخصوصية
+            const maskedEmail = email.replace(/(^.)[^@]*(@.*)/, "$1***$2");
+            const stars = '★'.repeat(ratingNum) + '☆'.repeat(5 - ratingNum);
+
+            const newReviewCard = document.createElement('div');
+            newReviewCard.className = 'review-card';
+            newReviewCard.innerHTML = `
+                <div class="review-stars">${stars}</div>
+                <p class="review-text">"${text}"</p>
+                <div class="review-meta">
+                    <span class="review-author">${name}</span>
+                    <span class="review-email">${maskedEmail}</span>
+                </div>
+            `;
+
+            document.getElementById('reviewsGrid').prepend(newReviewCard);
+            this.reset();
+            alert('شكراً لكِ! تم إضافة تقييمك بنجاح ✨');
+        });
+
+        // 3. تبديل الوضع (فاتح / داكن)
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
